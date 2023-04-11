@@ -20,7 +20,7 @@ class _SSSState extends State<SSS> {
             left: 0,
             right: 0,
             bottom: 0,
-            child: Image.asset("resimler/background2.jpg"),
+            child: Image.asset("resimler/background4.jpeg"),
           ),
           Column(
             mainAxisAlignment: MainAxisAlignment.start,

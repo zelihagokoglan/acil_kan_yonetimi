@@ -67,6 +67,15 @@ flutter:
    - resimler/inmun.png
    - resimler/kok_hucre.png
    - resimler/background2.jpg
+   - resimler/background.jpeg
+   - resimler/blood.png
+   - resimler/height.png
+   - resimler/identity.png
+   - resimler/profil.png
+   - resimler/uygulama_logo.jpeg
+   - resimler/weight.png
+   - resimler/background3.jpeg
+   - resimler/background4.jpeg
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

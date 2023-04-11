@@ -1,3 +1,9 @@
+import 'package:bagis_cesitleri/Profil_aray%C3%BCz.dart';
+import 'package:bagis_cesitleri/kayit_ol.dart';
+import 'package:bagis_cesitleri/kullanim%20kosullari.dart';
+import 'package:bagis_cesitleri/sifremi_unuttum.dart';
+import 'package:bagis_cesitleri/sss.dart';
+import 'package:bagis_cesitleri/yard%C4%B1m.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -15,288 +21,146 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.red,
       ),
-      home:  Bagis_Cesitleri(),
+      home:  Anasayfa(),
     );
   }
 }
 
-class Bagis_Cesitleri extends StatefulWidget {
+class Anasayfa extends StatefulWidget {
 
 
   @override
-  State<Bagis_Cesitleri> createState() => _Bagis_CesitleriState();
+  State<Anasayfa> createState() => _AnasayfaState();
 }
 
-class _Bagis_CesitleriState extends State<Bagis_Cesitleri> {
+class _AnasayfaState extends State<Anasayfa> {
 
 
   @override
   Widget build(BuildContext context) {
-    return DefaultTabController(
-      length: 3,
-      child: Scaffold(
-        appBar: AppBar(
-          actions: [
-            IconButton(
-              tooltip: "Bilgi",
-              icon: Icon(Icons.info_outline),
-              onPressed: (){
-                print("Bilgi alma işlemine tıklandı.");
-              },
-            ),
-          ],
-          title: Text("Bağış Çeşitleri"),
-          bottom: TabBar(
-            tabs: [
-              Tab(icon: Icon(Icons.account_circle),text: ("Profil"),
+    var ekranBilgisi = MediaQuery.of(context);
+    final double ekranYuksekligi = ekranBilgisi.size.height;
+    final double ekranGenisligi = ekranBilgisi.size.width;
+
+    return Scaffold(
+      backgroundColor: Color(0xffFFE1E1),
+
+      body: Center(
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Padding(
+                padding: EdgeInsets.only(bottom:ekranYuksekligi/20),
+                child: SizedBox(
+                  width: ekranGenisligi/2,
+                  child: Image.asset("resimler/uygulama_logo.jpeg"),
+                ),
               ),
-              Tab(icon: Icon(Icons.water_drop),text: ("Bağış"),
+
+              Text("GİRİŞ YAP", style: TextStyle(fontSize:ekranGenisligi/15 ),),
+
+
+              Padding(
+                padding:  EdgeInsets.all(ekranYuksekligi/50),
+                child: TextField(
+                  decoration: InputDecoration(
+                    hintText:  "Email",
+                    filled: true,
+                    fillColor: Colors.white,
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(20.0)),
+                    ),
+                  ),
+                ),
               ),
-              Tab(icon: Icon(Icons.gps_fixed),text: ("Konum"),
+
+
+
+              Padding(
+                padding:  EdgeInsets.all(ekranYuksekligi/50),
+                child: TextField(
+                  obscureText: true ,
+                  decoration: InputDecoration(
+                    hintText:  "Şifre",
+                    filled: true,
+                    fillColor: Colors.white,
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(20.0),
+                      ),
+                    ),
+                  ),
+                ),
               ),
-            ],
-          ),
-        ),
-        body: Stack(
-          children: [
-            Positioned(
-              right: 0,
-                left: 0,
-                bottom: 0,
-                child: Image.asset("resimler/background.jpg"),
-            ),
-            Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
+
+              Row(
                 children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Stack(
-                        alignment: Alignment.bottomCenter,
-                        children: [
-                          Container(
-                            width: 150,
-                            height: 150,
-                            child: Padding(
-                              padding: const EdgeInsets.only(right: 12.0),
-                              child: ElevatedButton(
-                                onPressed: (){
-                                  print("Kan bağışına tıklandı");
-                                },
-                                 child: Container(
-                                   width: 90,
-                                     height: 90,
-                                     child: Image.asset("resimler/kan.png"),
-                                 ),
-
-                                style: ElevatedButton.styleFrom(
-                                    primary:Colors.white,
-                                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15))
-                                ),
-                              ),
-                            ),
-                          ),
-                          Text("Kan",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),
-                          ),
-                        ],
+                  Padding(
+                    padding:  EdgeInsets.all(ekranYuksekligi/30),
+                    child: SizedBox(
+                      width: ekranGenisligi/2.75,
+                      height: ekranYuksekligi/15,
+                      child: ElevatedButton(
+                        child: Text("GİRİŞ YAP",style: TextStyle(fontSize:ekranYuksekligi/40),
+                        ),
+                        style: ElevatedButton.styleFrom(
+                          primary:Color(0xffF6C8C4),
+                        ),
+                        onPressed: (){
+                          Navigator.push(context, MaterialPageRoute(builder: (context) => Profil()));
+                        },
                       ),
-                      Stack(
-                        alignment: Alignment.bottomCenter,
-                        children: [
-                          Container(
-                            width: 150,
-                            height: 150,
-                            child: Padding(
-                              padding: const EdgeInsets.only(left: 12.0),
-                              child: ElevatedButton(
-                                onPressed: (){
-                                  print("Trombosit bağışına tıklandı");
-                                },
-                                child: Container(
-                                  width: 90,
-                                    height: 90,
-                                    child: Image.asset("resimler/trombosit.png"),
-                                ),
-
-                                style: ElevatedButton.styleFrom(
-                                    primary:Colors.white,
-                                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15))
-                                ),
-                              ),
-                            ),
-                          ),
-                          Text("Trombosit",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 20),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 24,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Stack(
-                        alignment: Alignment.bottomCenter,
-                        children: [
-                          Container(
-                            width: 150,
-                            height: 150,
-                            child: Padding(
-                              padding: const EdgeInsets.only(right: 12.0),
-                              child: ElevatedButton(
-                                onPressed: (){
-                                  print("İnmun bağışına tıklandı");
-                                },
-                                child: Container(
-                                  width: 90,
-                                    height: 90,
-                                    child: Image.asset("resimler/inmun.png"),
-                                ),
-                                style: ElevatedButton.styleFrom(
-                                    primary:Colors.white,
-                                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15))
-                                ),
-                              ),
-                            ),
-                          ),
-                          Text("İnmun",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),
-                          ),
-                        ],
-                      ),
-                      Stack(
-                        alignment: Alignment.bottomCenter,
-                        children: [
-                          Container(
-                            width: 150,
-                            height: 150,
-                            child: Padding(
-                              padding: const EdgeInsets.only(left: 12.0),
-                              child: ElevatedButton(
-                                onPressed: (){
-                                  print("Kök Hücre bağışına tıklandı");
-                                },
-                                child: Container(
-                                  width: 90,
-                                    height: 90,
-                                    child: Image.asset("resimler/kok_hucre.png"),
-                                ),
-                                style: ElevatedButton.styleFrom(
-                                    primary:Colors.white,
-                                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15))
-                                ),
-                              ),
-                            ),
-                          ),
-                          Text("Kök Hücre",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),
-                          ),
-                        ],
-                      ),
-                    ],
+                    ),
                   ),
 
-                  /*Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Stack(
-                        alignment: Alignment.bottomCenter,
-                        children: [
-                          Container(
-                            width: 100,
-                            height: 90,
-                            child: Padding(
-                              padding: const EdgeInsets.only(right: 10.0),
-                              child: ElevatedButton(
-                                onPressed: (){
-                                  print("Profil Sayfasına gidildi.");
-                                },
-                                child:Icon(
-                                  Icons.account_circle,
-                                  color: Colors.black,
-                                  size: 50,
-                                ),
-                                style: ElevatedButton.styleFrom(
-                                  shadowColor: Colors.black,
-                                   elevation: 9,
-                                   primary:Color(0xffE8C4BE),
-                                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
-                                ),
-                              ),
-                            ),
-                          ),
-                          Text("Profil",style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold),
-                          ),
-                        ],
+                  Padding(
+                    padding:  EdgeInsets.all(ekranYuksekligi/30),
+                    child: SizedBox(
+                      width: ekranGenisligi/2.75,
+                      height: ekranYuksekligi/15,
+                      child: ElevatedButton(
+                        child: Text("Kayıt OL",style: TextStyle(fontSize:ekranYuksekligi/40 ),),
+                        style: ElevatedButton.styleFrom(
+                          primary:Color(0xffF6C8C4),
+                        ),
+                        onPressed: (){
+                          Navigator.push(context, MaterialPageRoute(builder: (context) => Kaydol()));
+                        },
                       ),
-                      Stack(
-                        alignment: Alignment.bottomCenter,
-                        children: [
-                          Container(
-                            width: 100,
-                            height: 90,
-                            child: Padding(
-                              padding: const EdgeInsets.only(left: 10.0,right: 10.0),
-                              child: ElevatedButton(
-                                onPressed: (){
-                                  print("Profil Sayfasına gidildi.");
-                                },
-                                child:Icon(
-                                  Icons.water_drop,
-                                  color: Colors.black,
-                                  size: 50,
-                                ),
-                                style: ElevatedButton.styleFrom(
-                                    shadowColor: Colors.black,
-                                    elevation: 9,
-                                    primary:Color(0xffE8C4BE),
-                                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15))
-                                ),
-                              ),
-                            ),
-                          ),
-                          Text("Bağışlar",style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold),
-                          ),
-                        ],
-                      ),
-                      Stack(
-                        alignment: Alignment.bottomCenter,
-                        children: [
-                          Container(
-                            width: 100,
-                            height: 90,
-                            child: Padding(
-                              padding: const EdgeInsets.only(left: 10.0,right: 10.0),
-                              child: ElevatedButton(
-                                onPressed: (){
-                                  print("Profil Sayfasına gidildi.");
-                                },
-                                child:Icon(
-                                  Icons.gps_fixed,
-                                  color: Colors.black,
-                                  size: 50,
-                                ),
-                                style: ElevatedButton.styleFrom(
-                                    shadowColor: Colors.black,
-                                    elevation: 9,
-                                    primary:Color(0xffE8C4BE),
-                                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15))
-                                ),
-                              ),
-                            ),
-                          ),
-                          Text("Konum",style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),*/
+                    ),
+                  ),
                 ],
               ),
-            ),
-          ],
+              GestureDetector(
+                onTap: (){  //   tıklama özelliği
+                  print("sss seçildi.");
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => SSS()));
+
+                },
+                child: Text("SSS",
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: ekranYuksekligi/45,
+                  ),
+                ),
+              ),
+
+              GestureDetector(
+                onTap: (){  //   tıklama özelliği
+                  print("şifremi unuttum seçildi.");
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => Sifremi_unuttum()));
+
+                },
+                child: Text("Şifremi Unuttum",
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: ekranYuksekligi/45,
+                  ),
+                ),
+              ),
+
+            ],
+          ),
         ),
       ),
     );
