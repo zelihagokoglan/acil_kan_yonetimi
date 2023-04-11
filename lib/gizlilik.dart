@@ -1,3 +1,4 @@
+import 'package:bagis_cesitleri/kay%C4%B1t%20sayfas%C4%B1.dart';
 import 'package:bagis_cesitleri/sss.dart';
 import 'package:flutter/material.dart';
 
@@ -21,7 +22,7 @@ class _GizlilikState extends State<Gizlilik> {
             left: 0,
             right: 0,
             bottom: 0,
-            child: Image.asset("resimler/background2.jpg"),
+            child: Image.asset("resimler/background4.jpeg"),
           ),
           Column(
             mainAxisAlignment: MainAxisAlignment.start,
@@ -64,8 +65,10 @@ class _GizlilikState extends State<Gizlilik> {
                       child:
                       Text("OKUDUM, ONAYLIYORUM",style: TextStyle(color: Colors.white,fontSize: 16)),
                       onPressed: (){
+                       // Navigator.push(context, MaterialPageRoute(builder: (context) => Kayit_Sayfasi()));
+
                         print("Onaylandı");
-                        Navigator.push(context, MaterialPageRoute(builder: (context)=> SSS ()));
+
                       },
                     ),
                   ),

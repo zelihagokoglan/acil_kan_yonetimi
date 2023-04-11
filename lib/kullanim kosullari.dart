@@ -1,19 +1,19 @@
-import 'package:bagis_cesitleri/ki%C5%9Fisel_bilgiler.dart';
+import 'package:bagis_cesitleri/kay%C4%B1t%20sayfas%C4%B1.dart';
 import 'package:flutter/material.dart';
 
-class Yasal_Uyarilar extends StatefulWidget {
-  const Yasal_Uyarilar({Key? key}) : super(key: key);
+class Kullanim_Kosullari extends StatefulWidget {
+  const Kullanim_Kosullari({Key? key}) : super(key: key);
 
   @override
-  State<Yasal_Uyarilar> createState() => _Yasal_UyarilarState();
+  State<Kullanim_Kosullari> createState() => _Kullanim_KosullariState();
 }
 
-class _Yasal_UyarilarState extends State<Yasal_Uyarilar> {
+class _Kullanim_KosullariState extends State<Kullanim_Kosullari> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Yasal Uyarılar"),
+        title: Text("Kullanım Koşulları"),
       ),
       body: Stack(
         children: [
@@ -30,7 +30,7 @@ class _Yasal_UyarilarState extends State<Yasal_Uyarilar> {
                 child:
                 Padding(
                   padding: const EdgeInsets.only(top: 25.0),
-                  child: Text("YASAL UYARILAR",style: TextStyle(fontSize: 28,fontWeight: FontWeight.bold),),
+                  child: Text("KULLANIM KOŞULLARI",style: TextStyle(fontSize: 28,fontWeight: FontWeight.bold),),
                 ),
               ),
             ],
@@ -64,8 +64,8 @@ class _Yasal_UyarilarState extends State<Yasal_Uyarilar> {
                       child:
                       Text("OKUDUM, ONAYLIYORUM",style: TextStyle(color: Colors.white,fontSize: 16)),
                       onPressed: (){
+                       // Navigator.push(context, MaterialPageRoute(builder: (context) => Kayit_Sayfasi()));
                         print("Onaylandı");
-                        Navigator.push(context, MaterialPageRoute(builder: (context) => Kisisel_Bilgiler()));
                       },),
                   ),
                 ),
